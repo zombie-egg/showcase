@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>企业案例作品集</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Playfair+Display:wght@700;800&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/handdrawn.css" />
+  </head>
+  <body>
+    <header class="border-b border-[#000000] bg-[#FFFFFF]">
+      <nav class="luxury-container flex items-center justify-between gap-4 py-5">
+        <a href="/" class="flex items-center gap-3">
+          <span class="flex h-14 w-14 items-center justify-center border-2 border-[#000000] bg-[#FFFFFF] p-2">
+            <img data-logo class="h-full w-full object-contain" />
+          </span>
+          <span class="font-mono text-xs tracking-[0.26em] text-[#000000]">PORTFOLIO STUDIO</span>
+        </a>
+        <a href="/login.html" class="paper-button hidden px-5 py-3 text-xs sm:inline-flex">Admin</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="editor-grid border-b-4 border-[#000000] bg-[#FFFFFF]">
+        <div class="luxury-container py-24 sm:py-28 lg:py-32">
+          <div class="mb-12 flex flex-col gap-8 border-b-4 border-[#000000] pb-10 sm:flex-row sm:items-start sm:justify-between">
+            <div class="flex items-center gap-6">
+              <span class="flex h-28 w-28 shrink-0 items-center justify-center border-4 border-[#000000] bg-[#FFFFFF] p-4 sm:h-36 sm:w-36">
+                <img data-logo class="h-full w-full object-contain" />
+              </span>
+              <div>
+                <p class="font-mono text-xs uppercase tracking-[0.28em] text-[#525252]">Official brand mark</p>
+                <p class="font-title mt-3 text-4xl leading-none sm:text-5xl">企业案例作品集</p>
+              </div>
+            </div>
+            <p class="font-mono max-w-xs text-right text-xs uppercase leading-6 tracking-[0.22em] text-[#525252]">Digital brand websites, commercial experiences and curated interactive cases.</p>
+          </div>
+          <p class="font-mono mb-6 text-xs uppercase tracking-[0.28em] text-[#525252]">Brand official site</p>
+          <h1 class="font-title max-w-5xl text-6xl leading-[0.95] text-[#000000] sm:text-7xl lg:text-9xl">Quiet Luxury Web Portfolio</h1>
+          <p class="mt-10 max-w-2xl text-2xl leading-10 text-[#000000]">以黑白留白、粗分割线与编辑杂志式排版呈现客户官网案例。筛选分类，打开作品，直接进入真实线上链接。</p>
+        </div>
+      </section>
+
+      <section class="bg-[#FFFFFF]">
+        <div class="luxury-container py-24">
+          <div class="mb-12 grid gap-6 border-b-4 border-[#000000] pb-8 md:grid-cols-[1fr_2fr]">
+            <div>
+              <p class="font-mono text-xs uppercase tracking-[0.28em] text-[#525252]">Selected works</p>
+              <h2 class="font-title mt-4 text-5xl leading-none sm:text-6xl">Portfolio Index</h2>
+            </div>
+            <p class="text-xl leading-9 text-[#525252]">后端预置分类与案例会在这里完整渲染。默认展示全部案例，点击分类切换对应作品，点击卡片将在新标签页打开目标站点。</p>
+          </div>
+
+          <div class="mb-12">
+            <div id="categoryFilters" class="hide-scrollbar flex gap-3 overflow-x-auto border-b border-[#E5E5E5] pb-5"></div>
+          </div>
+
+          <section id="caseGrid" class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3"></section>
+          <section id="emptyState" class="paper-panel mx-auto mt-8 hidden max-w-xl bg-[#FFFFFF] p-8 text-center">
+            <h2 class="font-title text-4xl">No Works Found</h2>
+            <p class="mt-3 text-xl text-[#525252]">当前分类暂时没有案例。</p>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t-4 border-[#000000] bg-[#FFFFFF] px-4 py-8 text-center font-mono text-xs uppercase tracking-[0.22em] text-[#525252]">
+      © 2026 Portfolio Studio
+    </footer>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/showcase.js"></script>
+  </body>
+</html>

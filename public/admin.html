@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>案例后台管理</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Playfair+Display:wght@700;800&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/handdrawn.css" />
+  </head>
+  <body>
+    <header class="border-b-4 border-[#000000] bg-[#FFFFFF]">
+      <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-5">
+        <a href="/" class="flex items-center gap-3">
+          <img data-logo class="h-12 w-12 object-contain" />
+          <span class="font-mono text-xs uppercase tracking-[0.26em]">Admin Desk</span>
+        </a>
+        <div class="flex gap-3">
+          <a href="/" class="paper-button px-4 py-3 text-xs">Portfolio</a>
+          <button id="logoutBtn" class="paper-button px-4 py-3 text-xs">Logout</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 py-16 lg:grid-cols-[360px_1fr]">
+      <section class="paper-panel bg-[#FFFFFF] p-6 lg:col-span-2">
+        <div class="grid gap-6 md:grid-cols-[220px_1fr] md:items-center">
+          <div class="border-4 border-[#000000] bg-[#FFFFFF] p-6">
+            <img id="logoPreview" data-logo class="mx-auto h-32 w-32 object-contain" />
+          </div>
+          <div>
+            <p class="font-mono text-xs uppercase tracking-[0.28em] text-[#525252]">Brand logo</p>
+            <h1 class="font-title mt-3 text-5xl leading-none">修改站点 LOGO</h1>
+            <p class="mt-4 text-lg leading-8 text-[#525252]">上传后会覆盖固定文件 <span class="font-mono text-xs text-[#000000]">/static/images/logo.png</span>，首页、后台、登录页都会同步使用新 LOGO。</p>
+            <form id="logoForm" class="mt-6 grid gap-4 sm:grid-cols-[1fr_auto]">
+              <label>
+                <span class="editor-label mb-2 block text-xs text-[#525252]">选择 LOGO 图片（jpg / png，≤5MB）</span>
+                <input id="logoFile" type="file" accept="image/png,image/jpeg" class="paper-input px-0 py-3 text-lg" />
+              </label>
+              <button class="paper-button button-primary self-end px-5 py-3 text-xs">更新 LOGO</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-panel bg-[#FFFFFF] p-6">
+        <div class="mb-5 flex items-end justify-between gap-3">
+          <div>
+            <p class="font-mono text-xs uppercase tracking-[0.28em] text-[#525252]">Custom categories</p>
+            <h1 class="font-title mt-3 text-4xl">自定义添加分类</h1>
+          </div>
+        </div>
+        <p class="mb-5 text-lg leading-7 text-[#525252]">整理新网站时，先在这里添加分类，再到右侧录入案例。</p>
+        <form id="categoryForm" class="mb-5 grid gap-3">
+          <label>
+            <span class="editor-label mb-2 block text-xs text-[#525252]">分类名称</span>
+            <input id="categoryName" class="paper-input px-0 py-3 text-lg" placeholder="例如：餐饮品牌 / SaaS 官网" maxlength="50" />
+          </label>
+          <button class="paper-button button-primary px-4 py-3 text-xs">添加分类</button>
+        </form>
+        <div class="dashed-line mb-4"></div>
+        <div id="categoryList" class="space-y-4"></div>
+      </section>
+
+      <section class="paper-panel bg-[#FFFFFF] p-6">
+        <div class="mb-5 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p class="font-mono text-xs uppercase tracking-[0.28em] text-[#525252]">Custom websites</p>
+            <h2 class="font-title mt-3 text-4xl">自定义添加网站案例</h2>
+          </div>
+          <button id="openCaseModal" class="paper-button button-primary px-5 py-3 text-xs">添加网站</button>
+        </div>
+        <div id="adminCaseList" class="grid grid-cols-1 gap-5 xl:grid-cols-2"></div>
+      </section>
+    </main>
+
+    <div id="caseModal" class="modal-backdrop">
+      <section class="paper-panel max-h-[92vh] w-full max-w-2xl overflow-y-auto bg-[#FFFFFF] p-6 sm:p-8">
+        <div class="mb-8 flex items-center justify-between gap-4 border-b-4 border-[#000000] pb-6">
+          <h2 id="caseModalTitle" class="font-title text-5xl">新增网站案例</h2>
+          <button type="button" id="closeCaseModal" class="paper-button px-4 py-2 text-xs">关闭</button>
+        </div>
+        <form id="caseForm" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <input type="hidden" id="caseId" />
+          <label class="block sm:col-span-2">
+            <span class="editor-label mb-2 block text-xs text-[#525252]">案例名称</span>
+            <input id="caseName" class="paper-input px-0 py-3 text-lg" maxlength="100" />
+          </label>
+          <label class="block">
+            <span class="editor-label mb-2 block text-xs text-[#525252]">分类</span>
+            <select id="caseCategory" class="paper-input px-0 py-3 text-lg"></select>
+          </label>
+          <label class="block">
+            <span class="editor-label mb-2 block text-xs text-[#525252]">跳转链接</span>
+            <input id="caseUrl" class="paper-input px-0 py-3 text-lg" placeholder="https://example.com" />
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="editor-label mb-2 block text-xs text-[#525252]">上传封面（可选）</span>
+            <input id="caseCoverFile" type="file" accept="image/png,image/jpeg" class="paper-input px-0 py-3 text-lg" />
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="editor-label mb-2 block text-xs text-[#525252]">封面路径（可选，不填自动使用黑白占位封面）</span>
+            <input id="caseCoverPath" class="paper-input px-0 py-3 text-lg" placeholder="/static/images/cases/xxx.png" />
+          </label>
+          <input type="hidden" id="caseCover" />
+          <div class="sm:col-span-2">
+            <img id="coverPreview" class="hidden h-44 w-full border border-[#000000] object-cover" />
+          </div>
+          <label class="block sm:col-span-2">
+            <span class="editor-label mb-2 block text-xs text-[#525252]">简介</span>
+            <textarea id="caseIntro" class="paper-input min-h-28 px-0 py-3 text-lg" maxlength="500"></textarea>
+          </label>
+          <div class="dashed-line sm:col-span-2"></div>
+          <div class="flex justify-end gap-3 sm:col-span-2">
+            <button type="button" id="cancelCaseForm" class="paper-button px-5 py-3 text-xs">取消</button>
+            <button class="paper-button button-primary px-5 py-3 text-xs">保存网站</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

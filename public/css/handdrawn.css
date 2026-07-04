@@ -1,0 +1,250 @@
+/*
+ * 极简黑白轻奢编辑风设计系统
+ * 仅使用约定黑白色板；接口、字段、静态资源路径不在这里处理。
+ */
+:root {
+  --background: #FFFFFF;
+  --foreground: #000000;
+  --muted: #F5F5F5;
+  --muted-foreground: #525252;
+  --border: #000000;
+  --border-light: #E5E5E5;
+  --font-title: "Playfair Display", serif;
+  --font-body: "Source Serif 4", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --section-y: 6rem;
+}
+
+* {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-body);
+  background-color: var(--background);
+  background-image:
+    radial-gradient(var(--border-light) 1px, var(--background) 1px),
+    linear-gradient(var(--background), var(--background));
+  background-size: 18px 18px, auto;
+}
+
+h1,
+h2,
+h3,
+.font-title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+button,
+input,
+textarea,
+select,
+a {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: var(--background);
+}
+
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--foreground);
+  outline-offset: 3px;
+}
+
+.font-mono,
+.editor-label,
+.paper-button,
+.tag-button {
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.wobbly,
+.wobblyMd {
+  border-radius: 0;
+}
+
+.paper-panel,
+.paper-card,
+.paper-button,
+.paper-input {
+  color: var(--foreground);
+  background: var(--background);
+  border-color: var(--border);
+}
+
+.paper-panel {
+  border: 1px solid var(--border);
+}
+
+.paper-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: color 80ms linear, background-color 80ms linear, border-width 80ms linear;
+}
+
+.paper-card:hover {
+  color: var(--background);
+  background: var(--foreground);
+  border-width: 4px;
+}
+
+.paper-card img {
+  transition: transform 80ms linear, border-width 80ms linear;
+}
+
+.paper-card:hover img {
+  transform: scale(1.035);
+  border-width: 4px;
+}
+
+.paper-card:hover .case-meta,
+.paper-card:hover .case-link {
+  color: var(--background);
+  border-color: var(--background);
+}
+
+.paper-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--foreground);
+  transition: color 80ms linear, background-color 80ms linear, border-color 80ms linear;
+}
+
+.paper-button:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.button-primary {
+  border: 2px solid var(--border);
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.button-primary:hover {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.button-ghost {
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.button-ghost:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.paper-input {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid var(--border);
+  background: var(--background);
+  color: var(--foreground);
+  transition: border-width 80ms linear;
+}
+
+.paper-input:focus {
+  border-bottom-width: 4px;
+}
+
+.dashed-line {
+  border-top: 1px solid var(--border-light);
+}
+
+.section-rule {
+  border-top: 4px solid var(--border);
+}
+
+.editor-grid {
+  background-image:
+    linear-gradient(var(--border-light) 1px, var(--background) 1px),
+    linear-gradient(90deg, var(--border-light) 1px, var(--background) 1px);
+  background-size: 48px 48px;
+}
+
+.toast {
+  position: fixed;
+  z-index: 80;
+  right: 18px;
+  bottom: 18px;
+  max-width: min(360px, calc(100vw - 36px));
+  border: 2px solid var(--border);
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: var(--background);
+}
+
+.modal-backdrop.is-open {
+  display: flex;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.luxury-container {
+  width: min(72rem, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --section-y: 4rem;
+  }
+
+  .paper-card:hover {
+    border-width: 2px;
+  }
+}

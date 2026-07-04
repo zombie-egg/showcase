@@ -1,0 +1,13 @@
+node_modules/
+*.log
+*.tmp
+.DS_Store
+
+# 运行时生成的上传图片（保留目录占位，忽略实际上传文件）
+static/images/cases/*
+!static/images/cases/.gitkeep
+!static/images/cases/editor-cover-*.png
+!static/images/cases/demo-cover-*.png
+
+# 运行时可能被修改的数据文件（如需纳入版本控制可删除以下行）
+# data/*.json

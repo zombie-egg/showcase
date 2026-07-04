@@ -1,0 +1,19 @@
+{
+  "name": "handdrawn-showcase-backend",
+  "version": "1.0.0",
+  "description": "企业建站案例作品集展示系统 - 后端服务 (Node.js + Express + 本地JSON存储)",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^2.0.0"
+  },
+  "license": "MIT"
+}
