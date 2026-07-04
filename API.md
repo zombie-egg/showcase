@@ -17,15 +17,13 @@
 - `code`：`0` 表示成功，非 `0`（通常等于 HTTP 状态码）表示失败。
 - 前端判断成功统一以 `code === 0` 为准。
 
-## 鉴权方式
+## 后台访问方式
 
-登录成功后拿到 `token`，后续受保护接口在请求头携带：
+当前后台为免登录模式，分类、案例、上传接口均可直接调用。登录相关接口保留兼容，不作为后台使用前置条件。
 
 ```
 Authorization: Bearer <token>
 ```
-
-令牌无效 / 过期返回 `401`，前端应跳回登录页。
 
 ---
 
@@ -57,7 +55,7 @@ Authorization: Bearer <token>
 
 ## 2. 登出 `POST /api/auth/logout`
 
-**鉴权**：是 · **请求体**：无
+**鉴权**：兼容接口
 
 ```json
 { "code": 0, "message": "已登出", "data": null }
@@ -67,7 +65,7 @@ Authorization: Bearer <token>
 
 ## 3. 校验令牌 `GET /api/auth/check`
 
-**鉴权**：是
+**鉴权**：兼容接口
 
 ```json
 { "code": 0, "message": "令牌有效", "data": { "valid": true } }
@@ -93,7 +91,7 @@ Authorization: Bearer <token>
 
 ## 5. 新增分类 `POST /api/categories`
 
-**鉴权**：是
+**鉴权**：否
 
 **请求体**
 | 字段 | 类型 | 必填 | 说明 |
@@ -119,7 +117,7 @@ Authorization: Bearer <token>
 
 ## 6. 编辑分类 `PUT /api/categories/:id`
 
-**鉴权**：是
+**鉴权**：否
 
 **请求体**：同新增（`{ "name": "新名称" }`）
 
@@ -134,7 +132,7 @@ Authorization: Bearer <token>
 
 ## 7. 删除分类 `DELETE /api/categories/:id`
 
-**鉴权**：是
+**鉴权**：否
 
 **成功响应**
 ```json
@@ -193,7 +191,7 @@ Authorization: Bearer <token>
 
 ## 10. 新增案例 `POST /api/cases`
 
-**鉴权**：是
+**鉴权**：否
 
 **请求体**
 | 字段 | 类型 | 必填 | 说明 |
@@ -225,7 +223,7 @@ Authorization: Bearer <token>
 
 ## 11. 编辑案例 `PUT /api/cases/:id`
 
-**鉴权**：是 · **请求体**：同新增（全字段更新）
+**鉴权**：否 · **请求体**：同新增（全字段更新）
 
 ```json
 { "code": 0, "message": "案例更新成功", "data": { "id": "...", "...": "..." } }
@@ -237,7 +235,7 @@ Authorization: Bearer <token>
 
 ## 12. 删除案例 `DELETE /api/cases/:id`
 
-**鉴权**：是
+**鉴权**：否
 
 ```json
 { "code": 0, "message": "案例删除成功", "data": null }
@@ -249,7 +247,7 @@ Authorization: Bearer <token>
 
 ## 13. 图片上传 `POST /api/upload`
 
-**鉴权**：是
+**鉴权**：否
 **Content-Type**：`multipart/form-data`
 
 **表单字段**

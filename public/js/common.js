@@ -27,7 +27,7 @@
   function applyLogo(cacheKey = "") {
     qsa("[data-logo]").forEach((img) => {
       img.src = cacheKey ? `${window.APP_CONFIG.LOGO_PATH}?v=${cacheKey}` : window.APP_CONFIG.LOGO_PATH;
-      img.alt = "企业LOGO";
+      img.alt = "企业标识";
     });
   }
 
@@ -49,12 +49,12 @@
       backdrop.className = "modal-backdrop is-open";
       backdrop.innerHTML = `
         <div class="paper-panel max-w-md w-full bg-[#FFFFFF] p-6">
-          <h2 class="font-title text-4xl mb-3">Confirm</h2>
+          <h2 class="font-title text-4xl mb-3">确认操作</h2>
           <p class="text-xl leading-8">${escapeHtml(message)}</p>
           <div class="section-rule my-5"></div>
           <div class="flex justify-end gap-3">
-            <button type="button" data-cancel class="paper-button px-5 py-3 text-xs">Cancel</button>
-            <button type="button" data-ok class="paper-button button-primary px-5 py-3 text-xs">Delete</button>
+            <button type="button" data-cancel class="paper-button px-5 py-3 text-xs">取消</button>
+            <button type="button" data-ok class="paper-button button-primary px-5 py-3 text-xs">确认</button>
           </div>
         </div>
       `;

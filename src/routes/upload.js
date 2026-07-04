@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * 图片上传路由。需登录鉴权。
+ * 图片上传路由。后台免登录可用。
  * 请求：multipart/form-data，字段名 file
  * 返回：{ url, filename } —— url 为前端可直接访问的相对路径
  */
@@ -14,7 +14,6 @@ const { execFileSync } = require('child_process');
 const multer = require('multer');
 const config = require('../config');
 const { ok } = require('../utils/response');
-const { requireAuth } = require('../middleware/auth');
 const uploadSingle = require('../middleware/upload');
 const AppError = require('../utils/AppError');
 
@@ -28,14 +27,14 @@ const logoUpload = multer({
     const extOk = config.ALLOWED_IMAGE_EXT.includes(ext);
     const mimeOk = config.ALLOWED_IMAGE_MIME.includes(file.mimetype);
     if (!extOk || !mimeOk) {
-      return cb(new AppError('LOGO格式仅支持 jpg / png', 400));
+      return cb(new AppError('站点标识格式仅支持 jpg / png', 400));
     }
     cb(null, true);
   },
 }).single('file');
 
 // POST /api/upload
-router.post('/', requireAuth, (req, res, next) => {
+router.post('/', (req, res, next) => {
   uploadSingle(req, res, (err) => {
     if (err) return next(err); // 交给全局错误处理（含 multer 错误）
     if (!req.file) {
@@ -47,12 +46,12 @@ router.post('/', requireAuth, (req, res, next) => {
 });
 
 // POST /api/upload/logo
-// 覆盖全站固定 LOGO：/static/images/logo.png
-router.post('/logo', requireAuth, (req, res, next) => {
+// 覆盖全站固定站点标识：/static/images/logo.png
+router.post('/logo', (req, res, next) => {
   logoUpload(req, res, (err) => {
     if (err) return next(err);
     if (!req.file) {
-      return next(new AppError('请上传LOGO图片（字段名 file）', 400));
+      return next(new AppError('请上传站点标识图片（字段名 file）', 400));
     }
 
     const logoPath = path.join(config.IMAGES_DIR, 'logo.png');
@@ -73,9 +72,9 @@ router.post('/logo', requireAuth, (req, res, next) => {
         }
       }
 
-      return ok(res, { url: '/static/images/logo.png', filename: 'logo.png' }, 'LOGO更新成功');
+      return ok(res, { url: '/static/images/logo.png', filename: 'logo.png' }, '站点标识更新成功');
     } catch (error) {
-      return next(new AppError('LOGO保存失败，请上传 png 图片或确认服务器支持图片转换', 500));
+      return next(new AppError('站点标识保存失败，请上传 png 图片或确认服务器支持图片转换', 500));
     }
   });
 });

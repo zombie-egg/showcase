@@ -3,13 +3,12 @@
 /**
  * 分类 CRUD 路由。
  * - 查询公开（前台需要展示分类）
- * - 增 / 改 / 删 需登录鉴权
+ * - 增 / 改 / 删 公开可用（后台免登录）
  */
 
 const express = require('express');
 const { ok } = require('../utils/response');
 const { requireNonEmptyString } = require('../utils/validators');
-const { requireAuth } = require('../middleware/auth');
 const categoryService = require('../services/categoryService');
 
 const router = express.Router();
@@ -25,7 +24,7 @@ router.get('/', async (req, res, next) => {
 });
 
 // POST /api/categories  新增分类  { name }
-router.post('/', requireAuth, async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const name = requireNonEmptyString(req.body.name, '分类名称', 50);
     const category = await categoryService.create(name);
@@ -36,7 +35,7 @@ router.post('/', requireAuth, async (req, res, next) => {
 });
 
 // PUT /api/categories/:id  编辑分类名称  { name }
-router.put('/:id', requireAuth, async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
   try {
     const name = requireNonEmptyString(req.body.name, '分类名称', 50);
     const category = await categoryService.update(req.params.id, name);
@@ -47,7 +46,7 @@ router.put('/:id', requireAuth, async (req, res, next) => {
 });
 
 // DELETE /api/categories/:id  删除分类（绑定案例时拦截）
-router.delete('/:id', requireAuth, async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
     await categoryService.remove(req.params.id);
     return ok(res, null, '分类删除成功');

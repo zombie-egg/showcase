@@ -12,11 +12,11 @@
 | 接口前缀 | 所有业务接口以 `/api` 开头 |
 | 请求体格式 | JSON（`Content-Type: application/json`），上传接口用 `multipart/form-data` |
 | 响应结构 | `{ code, message, data }`，`code === 0` 为成功 |
-| 鉴权头 | `Authorization: Bearer <token>`（登录接口返回 token） |
+| 鉴权头 | 当前后台免登录，写接口无需携带 token；登录接口仅保留兼容 |
 | 去重头（可选） | 写操作可带 `X-Request-Id`，后端据此精确拦截重复提交 |
 | 跨域 | 后端已开启 CORS，前端可直接跨端口调用，无需代理 |
 
-**前端建议**：封装统一请求函数，自动注入 `Authorization`，并统一处理 `code !== 0` 弹错、`401` 跳登录。
+**前端建议**：封装统一请求函数，并统一处理 `code !== 0` 弹错。
 
 ---
 
@@ -25,7 +25,7 @@
 | 用途 | 固定路径 | 说明 |
 |------|----------|------|
 | 静态资源根 | `/static` | 映射后端 `static/` 目录 |
-| 站点 LOGO | `/static/images/logo.png` | 前端全站头部直接写死此路径 |
+| 站点标识 | `/static/images/logo.png` | 前端全站头部直接写死此路径 |
 | 案例封面图 | `/static/images/cases/xxx.png` | 由上传接口返回的 `data.url` 提供，直接用于 `<img src>` |
 
 > 封面图 `cover` 字段存的就是可访问相对路径，前端拼接 Base URL 后即可显示：`http://localhost:3000` + `cover`。同域部署时可直接用相对路径。
@@ -60,8 +60,8 @@
 
 ## 四、核心业务流程
 
-### 1. 后台登录
-`POST /api/auth/login { password }` → 存储返回的 `token` → 后续请求带上。
+### 1. 后台访问
+后台当前为免登录模式，直接访问 `/admin.html` 即可管理分类、案例和站点标识。
 
 ### 2. 新增 / 编辑案例（含封面）
 1. 选图后先调 `POST /api/upload`（`multipart/form-data`，字段名 **`file`**）→ 得到 `data.url`。
@@ -129,9 +129,9 @@ CSS 参考：
 ## 六、联调自检清单
 
 - [ ] 前端请求 Base URL 与后端端口一致（默认 `3000`）。
-- [ ] 所有写操作已带 `Authorization` 头。
+- [ ] 写操作无需登录即可调用。
 - [ ] 上传字段名为 `file`，格式 jpg/png，≤5MB。
 - [ ] 案例 `cover` 使用上传接口返回的 `url`，未手写错误路径。
 - [ ] 分类删除处理了 `409` 拦截提示。
-- [ ] LOGO 图片已按 `logo.png` 放入 `static/images/`。
+- [ ] 站点标识图片已按 `logo.png` 放入 `static/images/`。
 - [ ] `code !== 0` 时统一展示后端 `message`。

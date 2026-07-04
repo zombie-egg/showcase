@@ -72,7 +72,7 @@
                 <h3 class="font-title text-3xl leading-9">${UI.escapeHtml(item.name)}</h3>
                 <p class="case-meta mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-[#525252]">项目描述</p>
                 <p class="mt-2 text-lg leading-8 text-inherit">${UI.escapeHtml(item.intro)}</p>
-                <p class="case-link mt-8 border-t border-[#000000] pt-4 font-mono text-xs uppercase tracking-[0.22em] text-[#525252]">Open external site</p>
+                <p class="case-link mt-8 border-t border-[#000000] pt-4 font-mono text-xs tracking-[0.18em] text-[#525252]">打开项目网站</p>
               </div>
             </a>
           </article>

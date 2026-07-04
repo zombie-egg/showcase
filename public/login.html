@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>管理员登录</title>
+    <title>后台免登录入口</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Playfair+Display:wght@700;800&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -15,17 +15,12 @@
       <section class="paper-panel w-full max-w-md bg-[#FFFFFF] p-8 sm:p-10">
         <div class="mb-10 border-b-4 border-[#000000] pb-8">
           <img data-logo class="h-14 w-14 object-contain" />
-          <p class="font-mono mt-8 text-xs uppercase tracking-[0.28em] text-[#525252]">Private desk</p>
-          <h1 class="font-title mt-3 text-5xl leading-none">Admin Login</h1>
+          <p class="font-mono mt-8 text-xs tracking-[0.18em] text-[#525252]">后台管理</p>
+          <h1 class="font-title mt-3 text-5xl leading-none">后台已免登录</h1>
         </div>
-        <form id="loginForm" class="space-y-8">
-          <label class="block">
-            <span class="editor-label mb-3 block text-xs text-[#525252]">Password</span>
-            <input id="password" type="password" class="paper-input px-0 py-3 text-2xl" autocomplete="current-password" />
-          </label>
-          <button type="submit" class="paper-button button-primary w-full px-5 py-4 text-xs">Login</button>
-        </form>
-        <a href="/" class="paper-button button-ghost mt-8 text-xs">Back to portfolio</a>
+        <p class="text-xl leading-8 text-[#525252]">现在可以直接进入后台管理分类、案例和站点标识。</p>
+        <a href="/admin.html" class="paper-button button-primary mt-8 w-full px-5 py-4 text-xs">进入后台</a>
+        <a href="/" class="paper-button button-ghost mt-8 text-xs">返回首页</a>
       </section>
     </main>
 

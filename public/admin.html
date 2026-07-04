@@ -15,11 +15,10 @@
       <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-5">
         <a href="/" class="flex items-center gap-3">
           <img data-logo class="h-12 w-12 object-contain" />
-          <span class="font-mono text-xs uppercase tracking-[0.26em]">Admin Desk</span>
+          <span class="font-mono text-xs tracking-[0.18em]">青岛汇康吉联网络科技有限公司后台</span>
         </a>
         <div class="flex gap-3">
-          <a href="/" class="paper-button px-4 py-3 text-xs">Portfolio</a>
-          <button id="logoutBtn" class="paper-button px-4 py-3 text-xs">Logout</button>
+          <a href="/" class="paper-button px-4 py-3 text-xs">返回首页</a>
         </div>
       </nav>
     </header>
@@ -31,15 +30,15 @@
             <img id="logoPreview" data-logo class="mx-auto h-32 w-32 object-contain" />
           </div>
           <div>
-            <p class="font-mono text-xs uppercase tracking-[0.28em] text-[#525252]">Brand logo</p>
-            <h1 class="font-title mt-3 text-5xl leading-none">修改站点 LOGO</h1>
-            <p class="mt-4 text-lg leading-8 text-[#525252]">上传后会覆盖固定文件 <span class="font-mono text-xs text-[#000000]">/static/images/logo.png</span>，首页、后台、登录页都会同步使用新 LOGO。</p>
+            <p class="font-mono text-xs tracking-[0.18em] text-[#525252]">公司标识</p>
+            <h1 class="font-title mt-3 text-5xl leading-none">修改站点标识</h1>
+            <p class="mt-4 text-lg leading-8 text-[#525252]">上传后会覆盖固定文件 <span class="font-mono text-xs text-[#000000]">/static/images/logo.png</span>，首页和后台都会同步使用新标识。</p>
             <form id="logoForm" class="mt-6 grid gap-4 sm:grid-cols-[1fr_auto]">
               <label>
-                <span class="editor-label mb-2 block text-xs text-[#525252]">选择 LOGO 图片（jpg / png，≤5MB）</span>
+                <span class="editor-label mb-2 block text-xs text-[#525252]">选择标识图片（jpg / png，≤5MB）</span>
                 <input id="logoFile" type="file" accept="image/png,image/jpeg" class="paper-input px-0 py-3 text-lg" />
               </label>
-              <button class="paper-button button-primary self-end px-5 py-3 text-xs">更新 LOGO</button>
+              <button class="paper-button button-primary self-end px-5 py-3 text-xs">更新标识</button>
             </form>
           </div>
         </div>
@@ -48,7 +47,7 @@
       <section class="paper-panel bg-[#FFFFFF] p-6">
         <div class="mb-5 flex items-end justify-between gap-3">
           <div>
-            <p class="font-mono text-xs uppercase tracking-[0.28em] text-[#525252]">Custom categories</p>
+            <p class="font-mono text-xs tracking-[0.18em] text-[#525252]">分类管理</p>
             <h1 class="font-title mt-3 text-4xl">自定义添加分类</h1>
           </div>
         </div>
@@ -67,7 +66,7 @@
       <section class="paper-panel bg-[#FFFFFF] p-6">
         <div class="mb-5 flex flex-wrap items-end justify-between gap-3">
           <div>
-            <p class="font-mono text-xs uppercase tracking-[0.28em] text-[#525252]">Custom websites</p>
+            <p class="font-mono text-xs tracking-[0.18em] text-[#525252]">案例管理</p>
             <h2 class="font-title mt-3 text-4xl">自定义添加网站案例</h2>
           </div>
           <button id="openCaseModal" class="paper-button button-primary px-5 py-3 text-xs">添加网站</button>

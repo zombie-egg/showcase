@@ -3,13 +3,12 @@
 /**
  * 案例 CRUD 路由。
  * - 查询公开（前台展示）
- * - 增 / 改 / 删 需登录鉴权
+ * - 增 / 改 / 删 公开可用（后台免登录）
  */
 
 const express = require('express');
 const { ok } = require('../utils/response');
 const { requireNonEmptyString, requireHttpUrl } = require('../utils/validators');
-const { requireAuth } = require('../middleware/auth');
 const AppError = require('../utils/AppError');
 const caseService = require('../services/caseService');
 
@@ -38,7 +37,7 @@ router.get('/:id', async (req, res, next) => {
 });
 
 // POST /api/cases  新增案例
-router.post('/', requireAuth, async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const payload = {
       name: requireNonEmptyString(req.body.name, '案例名称', 100),
@@ -55,7 +54,7 @@ router.post('/', requireAuth, async (req, res, next) => {
 });
 
 // PUT /api/cases/:id  编辑案例（全字段更新）
-router.put('/:id', requireAuth, async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
   try {
     const payload = {
       name: requireNonEmptyString(req.body.name, '案例名称', 100),
@@ -72,7 +71,7 @@ router.put('/:id', requireAuth, async (req, res, next) => {
 });
 
 // DELETE /api/cases/:id  删除案例
-router.delete('/:id', requireAuth, async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
     await caseService.remove(req.params.id);
     return ok(res, null, '案例删除成功');

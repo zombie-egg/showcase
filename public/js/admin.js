@@ -27,15 +27,15 @@
           <div class="border border-[#000000] bg-[#FFFFFF] p-4">
             <div class="mb-3 flex items-center justify-between gap-3">
               <strong class="font-title text-2xl">${UI.escapeHtml(category.name)}</strong>
-              <span class="font-mono text-xs uppercase tracking-[0.16em] text-[#525252]">${count} cases</span>
+              <span class="font-mono text-xs tracking-[0.16em] text-[#525252]">${count} 个案例</span>
             </div>
             <div class="flex gap-2">
-              <button data-edit-category="${UI.escapeHtml(category.id)}" class="paper-button flex-1 px-3 py-2 text-xs">Edit</button>
+              <button data-edit-category="${UI.escapeHtml(category.id)}" class="paper-button flex-1 px-3 py-2 text-xs">修改</button>
               <button
                 data-delete-category="${UI.escapeHtml(category.id)}"
                 class="paper-button flex-1 px-3 py-2 text-xs ${disabled ? "cursor-not-allowed bg-[#F5F5F5] text-[#525252]" : "button-primary"}"
                 ${disabled ? "disabled" : ""}
-              >${disabled ? "Locked" : "Delete"}</button>
+              >${disabled ? "已绑定" : "删除"}</button>
             </div>
             ${disabled ? '<p class="mt-3 text-sm leading-6 text-[#525252]">该分类已绑定案例，需先移除关联案例后才能删除。</p>' : ""}
           </div>
@@ -82,9 +82,9 @@
             <p class="mb-4 text-lg leading-7">${UI.escapeHtml(item.intro)}</p>
             <div class="dashed-line mb-3"></div>
             <div class="flex flex-wrap gap-2">
-              <button data-edit-case="${UI.escapeHtml(item.id)}" class="paper-button px-4 py-2 text-xs">Edit</button>
-              <button data-delete-case="${UI.escapeHtml(item.id)}" class="paper-button button-primary px-4 py-2 text-xs">Delete</button>
-              <a href="${UI.escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="paper-button px-4 py-2 text-xs">Open</a>
+              <button data-edit-case="${UI.escapeHtml(item.id)}" class="paper-button px-4 py-2 text-xs">修改</button>
+              <button data-delete-case="${UI.escapeHtml(item.id)}" class="paper-button button-primary px-4 py-2 text-xs">删除</button>
+              <a href="${UI.escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="paper-button px-4 py-2 text-xs">打开</a>
             </div>
           </article>
         `;
@@ -260,30 +260,14 @@
       await Api.upload.logo(file);
       input.value = "";
       UI.applyLogo(Date.now());
-      UI.showToast("LOGO更新成功");
+      UI.showToast("站点标识更新成功");
     } catch (err) {
       UI.showToast(err.message, "error");
     }
   }
 
-  async function logout() {
-    try {
-      await Api.auth.logout();
-    } catch (error) {
-      Api.clearToken();
-    }
-    Api.clearToken();
-    location.href = "/login.html";
-  }
-
   async function init() {
-    if (!Api.getToken()) {
-      location.href = "/login.html";
-      return;
-    }
-
     try {
-      await Api.auth.check();
       await reload();
     } catch (error) {
       UI.showToast(error.message, "error");
@@ -313,7 +297,6 @@
     UI.qs("#cancelCaseForm").addEventListener("click", closeCaseModal);
     UI.qs("#caseForm").addEventListener("submit", saveCase);
     UI.qs("#logoForm").addEventListener("submit", saveLogo);
-    UI.qs("#logoutBtn").addEventListener("click", logout);
     UI.qs("#caseCoverFile").addEventListener("change", async () => {
       try {
         await uploadSelectedCover();
