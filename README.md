@@ -123,7 +123,7 @@ showcase/
 ### 2. 分类表 `data/categories.json`
 ```json
 [
-  { "id": "cat_ai_generation", "name": "AI生成类", "createdAt": "...", "updatedAt": "..." }
+  { "id": "cat_ai", "name": "AI相关", "createdAt": "...", "updatedAt": "..." }
 ]
 ```
 
@@ -133,10 +133,10 @@ showcase/
   {
     "id": "case_ai_001",
     "name": "YBST AI",
-    "categoryId": "cat_ai_generation",
+    "categoryId": "cat_ai",
     "url": "https://www.ybstai.com/",
     "cover": "/static/images/cases/editor-cover-01.png",
-    "intro": "AI生成类官网案例……",
+    "intro": "项目描述，可在后台简单填写行业、亮点或备注……",
     "createdAt": "...",
     "updatedAt": "..."
   }

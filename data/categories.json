@@ -1,115 +1,19 @@
 [
   {
-    "id": "cat_ai_generation",
-    "name": "AI生成类",
+    "id": "cat_ai",
+    "name": "AI相关",
     "createdAt": "2026-07-04T00:00:00.000Z",
     "updatedAt": "2026-07-04T00:00:00.000Z"
   },
   {
     "id": "cat_effects",
-    "name": "特效类",
+    "name": "特效相关",
     "createdAt": "2026-07-04T00:00:00.000Z",
     "updatedAt": "2026-07-04T00:00:00.000Z"
   },
   {
-    "id": "cat_vape",
-    "name": "电子烟",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_hotel",
-    "name": "民宿酒店",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_tutoring",
-    "name": "家教英文站",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_jewelry",
-    "name": "珠宝",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_toys",
-    "name": "DIY玩具",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_industrial",
-    "name": "工业油脂",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_smart_site",
-    "name": "智能官网",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_maternity",
-    "name": "月子中心",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_medical_beauty",
-    "name": "医美",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_winery",
-    "name": "酒庄",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_biotech",
-    "name": "生物科技",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_mapping_solution",
-    "name": "时空测绘方案",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_mapping_nav",
-    "name": "华测测绘导航",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_decoration",
-    "name": "装修设计",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_trade",
-    "name": "外贸公司",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_hardware",
-    "name": "五金配件",
-    "createdAt": "2026-07-04T00:00:00.000Z",
-    "updatedAt": "2026-07-04T00:00:00.000Z"
-  },
-  {
-    "id": "cat_fitness",
-    "name": "健身房",
+    "id": "cat_showcase",
+    "name": "展示类",
     "createdAt": "2026-07-04T00:00:00.000Z",
     "updatedAt": "2026-07-04T00:00:00.000Z"
   }

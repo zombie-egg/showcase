@@ -78,6 +78,7 @@
                 <p class="case-meta mt-2 inline-block border border-[#000000] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em]">${UI.escapeHtml(item.categoryName || categoryName(item.categoryId))}</p>
               </div>
             </div>
+            <p class="mb-1 font-mono text-[10px] uppercase tracking-[0.16em] text-[#525252]">项目描述</p>
             <p class="mb-4 text-lg leading-7">${UI.escapeHtml(item.intro)}</p>
             <div class="dashed-line mb-3"></div>
             <div class="flex flex-wrap gap-2">
@@ -192,7 +193,7 @@
     if (!payload.categoryId) return "请选择分类";
     if (!UI.validateHttpUrl(payload.url)) return "跳转URL必须以 http:// 或 https:// 开头";
     if (!payload.cover) return "请上传封面图片或填写封面路径";
-    if (!payload.intro) return "案例简介不能为空";
+    if (!payload.intro) return "项目描述不能为空";
     return "";
   }
 

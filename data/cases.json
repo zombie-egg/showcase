@@ -2,9 +2,9 @@
   {
     "id": "case_ai_001",
     "name": "YBST AI",
-    "categoryId": "cat_ai_generation",
+    "categoryId": "cat_ai",
     "url": "https://www.ybstai.com/",
-    "cover": "/static/images/cases/case_1783153551752_986c7030.png",
+    "cover": "/static/images/cases/editor-cover-01.png",
     "intro": "AI生成类官网案例，突出智能产品表达与品牌入口效率。",
     "createdAt": "2026-07-04T00:00:00.000Z",
     "updatedAt": "2026-07-04T08:25:54.632Z"
@@ -12,7 +12,7 @@
   {
     "id": "case_ai_002",
     "name": "云算宝 AI",
-    "categoryId": "cat_ai_generation",
+    "categoryId": "cat_ai",
     "url": "https://yunsuanbaoai.com/",
     "cover": "/static/images/cases/editor-cover-02.png",
     "intro": "AI生成类官网案例，面向智能计算与服务介绍场景。",
@@ -62,7 +62,7 @@
   {
     "id": "case_vape_001",
     "name": "SZ Paphos",
-    "categoryId": "cat_vape",
+    "categoryId": "cat_showcase",
     "url": "https://www.szpaphos.com",
     "cover": "/static/images/cases/editor-cover-07.png",
     "intro": "电子烟行业官网案例，聚焦产品线展示与海外品牌质感。",
@@ -72,7 +72,7 @@
   {
     "id": "case_hotel_001",
     "name": "Beaune Sweet Home",
-    "categoryId": "cat_hotel",
+    "categoryId": "cat_showcase",
     "url": "https://www.beaune-sweethome.fr/les-appartements/",
     "cover": "/static/images/cases/editor-cover-08.png",
     "intro": "民宿酒店案例，适合房型、空间与预约入口的精致表达。",
@@ -82,7 +82,7 @@
   {
     "id": "case_tutoring_001",
     "name": "AmazingTalker",
-    "categoryId": "cat_tutoring",
+    "categoryId": "cat_showcase",
     "url": "https://en.amazingtalker.com/",
     "cover": "/static/images/cases/editor-cover-09.png",
     "intro": "家教英文站案例，呈现课程、教师与转化路径的完整结构。",
@@ -92,7 +92,7 @@
   {
     "id": "case_jewelry_001",
     "name": "Yanluo Jewelry",
-    "categoryId": "cat_jewelry",
+    "categoryId": "cat_showcase",
     "url": "https://yanluojewelry.com/",
     "cover": "/static/images/cases/editor-cover-10.png",
     "intro": "珠宝品牌案例，强调商品细节、品牌调性与精致视觉节奏。",
@@ -102,7 +102,7 @@
   {
     "id": "case_toys_001",
     "name": "Minifigs Builder",
-    "categoryId": "cat_toys",
+    "categoryId": "cat_showcase",
     "url": "https://minifigs.me/pages/minifig-builder",
     "cover": "/static/images/cases/editor-cover-11.png",
     "intro": "DIY玩具案例，突出自定义构建流程和趣味电商体验。",
@@ -112,7 +112,7 @@
   {
     "id": "case_industrial_001",
     "name": "JT PET Chips",
-    "categoryId": "cat_industrial",
+    "categoryId": "cat_showcase",
     "url": "https://jtpetchips.com",
     "cover": "/static/images/cases/editor-cover-12.png",
     "intro": "工业油脂与材料企业案例，适合产品参数与企业实力展示。",
@@ -122,7 +122,7 @@
   {
     "id": "case_smart_001",
     "name": "TEC-DO",
-    "categoryId": "cat_smart_site",
+    "categoryId": "cat_showcase",
     "url": "https://www.tec-do.com/",
     "cover": "/static/images/cases/editor-cover-13.png",
     "intro": "智能官网案例，呈现科技公司产品能力与解决方案架构。",
@@ -132,7 +132,7 @@
   {
     "id": "case_maternity_001",
     "name": "YXJX 月子中心",
-    "categoryId": "cat_maternity",
+    "categoryId": "cat_showcase",
     "url": "https://www.yxjx.cn/",
     "cover": "/static/images/cases/editor-cover-14.png",
     "intro": "月子中心案例，覆盖服务介绍、环境展示与信任背书。",
@@ -142,7 +142,7 @@
   {
     "id": "case_medical_001",
     "name": "云美达医美",
-    "categoryId": "cat_medical_beauty",
+    "categoryId": "cat_showcase",
     "url": "http://www.yunmeida.net",
     "cover": "/static/images/cases/editor-cover-15.png",
     "intro": "医美行业案例，适合项目介绍、品牌信任与预约转化。",
@@ -152,7 +152,7 @@
   {
     "id": "case_winery_001",
     "name": "西鸽酒庄",
-    "categoryId": "cat_winery",
+    "categoryId": "cat_showcase",
     "url": "https://www.xige-estate.com/",
     "cover": "/static/images/cases/editor-cover-16.png",
     "intro": "酒庄品牌案例，体现产区故事、产品系列与品牌资产。",
@@ -162,7 +162,7 @@
   {
     "id": "case_biotech_001",
     "name": "科智兴生物",
-    "categoryId": "cat_biotech",
+    "categoryId": "cat_showcase",
     "url": "http://www.kezxbio.com/",
     "cover": "/static/images/cases/editor-cover-17.png",
     "intro": "生物科技案例，适合科研能力、产品服务与企业介绍。",
@@ -172,7 +172,7 @@
   {
     "id": "case_mapping_solution_001",
     "name": "SingularXYZ CORS Solution",
-    "categoryId": "cat_mapping_solution",
+    "categoryId": "cat_showcase",
     "url": "https://www.singularxyz.cn/solution_detail/CORS-Network_Solution",
     "cover": "/static/images/cases/editor-cover-18.png",
     "intro": "时空测绘方案案例，呈现复杂解决方案与专业技术路径。",
@@ -182,7 +182,7 @@
   {
     "id": "case_mapping_nav_001",
     "name": "华测测绘导航",
-    "categoryId": "cat_mapping_nav",
+    "categoryId": "cat_showcase",
     "url": "https://www.huace.cn/?utm_source=chatgpt.com",
     "cover": "/static/images/cases/editor-cover-19.png",
     "intro": "测绘导航企业案例，适合行业产品矩阵和技术能力展示。",
@@ -192,7 +192,7 @@
   {
     "id": "case_decoration_001",
     "name": "Starz Pasha",
-    "categoryId": "cat_decoration",
+    "categoryId": "cat_showcase",
     "url": "https://starzpasha.com/",
     "cover": "/static/images/cases/editor-cover-20.png",
     "intro": "装修设计案例，适合空间作品、设计服务与高端审美表达。",
@@ -202,7 +202,7 @@
   {
     "id": "case_trade_001",
     "name": "Medoc 外贸公司",
-    "categoryId": "cat_trade",
+    "categoryId": "cat_showcase",
     "url": "https://www.medoc.com.cn",
     "cover": "/static/images/cases/editor-cover-21.png",
     "intro": "外贸公司案例，覆盖企业介绍、产品能力与国际业务形象。",
@@ -212,7 +212,7 @@
   {
     "id": "case_hardware_001",
     "name": "Kinbest Parts",
-    "categoryId": "cat_hardware",
+    "categoryId": "cat_showcase",
     "url": "https://kinbest-parts.com/index.php?c=category&id=75",
     "cover": "/static/images/cases/editor-cover-22.png",
     "intro": "五金配件案例，适合细分品类、规格与询盘入口展示。",
@@ -222,7 +222,7 @@
   {
     "id": "case_fitness_001",
     "name": "SuperMonkey",
-    "categoryId": "cat_fitness",
+    "categoryId": "cat_showcase",
     "url": "https://www.supermonkey.com.cn/",
     "cover": "/static/images/cases/editor-cover-23.png",
     "intro": "健身房品牌案例，突出课程体验、品牌识别与城市服务网络。",
