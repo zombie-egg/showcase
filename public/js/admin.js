@@ -267,7 +267,13 @@
   }
 
   async function init() {
+    if (!Api.getToken()) {
+      location.href = "/login.html";
+      return;
+    }
+
     try {
+      await Api.auth.check();
       await reload();
     } catch (error) {
       UI.showToast(error.message, "error");

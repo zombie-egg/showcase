@@ -3,6 +3,7 @@
 ## 页面入口
 
 - 前台案例展示页：`/` 或 `/index.html`
+- 后台登录页：`/login.html`
 - 后台管理页：`/admin.html`
 
 ## 源码结构
@@ -12,7 +13,7 @@
 - `public/js/api.js`：统一 AJAX 请求封装，自动注入 `Authorization: Bearer <token>` 与写操作 `X-Request-Id`。
 - `public/js/common.js`：站点标识注入、提示弹窗、二次确认弹窗、HTML 转义、URL 与图片校验工具。
 - `public/js/showcase.js`：前台分类筛选与案例卡片渲染。
-- `public/js/login.js`：兼容旧入口，自动跳转后台。
+- `public/js/login.js`：后台密码登录。
 - `public/js/admin.js`：分类管理、案例管理、上传预览、新增/编辑弹窗、删除确认。
 
 ## 静态资源路径规则
@@ -40,6 +41,6 @@ window.APP_CONFIG = {
 
 如果前端单独起服务、后端仍在 `http://localhost:3000`，只需要把 `API_BASE_URL` 改成该地址。
 
-## 后台访问
+## 后台登录
 
-当前后台为免登录模式，访问 `/admin.html` 即可管理分类、案例和站点标识。
+默认后端密码为 `Ccj940904`，可通过环境变量 `ADMIN_PASSWORD` 覆盖。登录成功后 token 保存在浏览器 `localStorage`，后台写操作会自动携带鉴权头。

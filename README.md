@@ -1,6 +1,6 @@
 # 极简黑白企业案例作品集展示系统
 
-Node.js + Express + 本地 JSON 文件存储（**不使用数据库**）。前端为原生 HTML + Tailwind CSS v3 CDN + 原生 JS，实现极简黑白轻奢编辑风案例展示与免登录后台管理。
+Node.js + Express + 本地 JSON 文件存储（**不使用数据库**）。前端为原生 HTML + Tailwind CSS v3 CDN + 原生 JS，实现极简黑白轻奢编辑风案例展示与密码登录后台管理。
 
 ---
 
@@ -17,15 +17,16 @@ npm start           # 或开发模式 npm run dev（文件变更自动重启）
 启动后访问：
 
 - 前台案例展示页：`http://localhost:3000/`
+- 后台登录页：`http://localhost:3000/login.html`
 - 后台管理页：`http://localhost:3000/admin.html`
 - 接口根：`http://localhost:3000/api`
 - 健康检查：`http://localhost:3000/api/health`
 - 静态资源：`http://localhost:3000/static/`
 
-默认端口 `3000`。后台管理页当前为免登录模式，可直接访问。
+默认端口 `3000`，后台默认密码 `Ccj940904`。可用环境变量覆盖：
 
 ```bash
-PORT=8080 npm start
+PORT=8080 ADMIN_PASSWORD=your_secret npm start
 ```
 
 程序启动时**自动创建**所需目录（`static/images/cases/`、`data/`）与数据文件；当前 `data/` 已预置客户案例分类与案例链接，前台会直接通过 `/api/categories` 与 `/api/cases` 渲染。
@@ -117,7 +118,7 @@ showcase/
   "updatedAt": "2026-01-01T00:00:00.000Z"
 }
 ```
-> 当前后台为免登录模式，此文件仅保留兼容信息。
+> 实际登录校验以 `config.ADMIN_PASSWORD`（默认 `Ccj940904`，可用环境变量覆盖）为准。
 
 ### 2. 分类表 `data/categories.json`
 ```json
@@ -150,16 +151,19 @@ showcase/
 
 | 功能 | 方法 | 地址 | 鉴权 |
 |------|------|------|------|
+| 登录 | POST | `/api/auth/login` | 否 |
+| 登出 | POST | `/api/auth/logout` | 是 |
+| 校验令牌 | GET | `/api/auth/check` | 是 |
 | 分类列表 | GET | `/api/categories` | 否 |
-| 新增分类 | POST | `/api/categories` | 否 |
-| 编辑分类 | PUT | `/api/categories/:id` | 否 |
-| 删除分类 | DELETE | `/api/categories/:id` | 否 |
+| 新增分类 | POST | `/api/categories` | 是 |
+| 编辑分类 | PUT | `/api/categories/:id` | 是 |
+| 删除分类 | DELETE | `/api/categories/:id` | 是 |
 | 案例列表 | GET | `/api/cases?categoryId=` | 否 |
 | 案例详情 | GET | `/api/cases/:id` | 否 |
-| 新增案例 | POST | `/api/cases` | 否 |
-| 编辑案例 | PUT | `/api/cases/:id` | 否 |
-| 删除案例 | DELETE | `/api/cases/:id` | 否 |
-| 图片上传 | POST | `/api/upload` | 否 |
+| 新增案例 | POST | `/api/cases` | 是 |
+| 编辑案例 | PUT | `/api/cases/:id` | 是 |
+| 删除案例 | DELETE | `/api/cases/:id` | 是 |
+| 图片上传 | POST | `/api/upload` | 是 |
 
 完整入参 / 出参见 [API.md](API.md)。前端入口、配置与站点标识/封面路径说明见 [docs/frontend-config.md](docs/frontend-config.md)。
 
@@ -174,4 +178,4 @@ showcase/
 - **文件异常**：图片超 5MB / 格式非法 / 未选文件均返回明确错误。
 - **数据写入**：写锁串行化 + 临时文件原子替换，避免并发写坏文件。
 
-> 安全提示：当前后台为免登录模式，适合受控环境使用。如需公开部署并限制编辑权限，建议重新启用鉴权或在部署平台侧增加访问保护。
+> 安全提示：本项目为单管理员简易鉴权，Token 存于内存，进程重启后需重新登录。生产环境请务必通过 `ADMIN_PASSWORD` 环境变量设置强密码，并置于 HTTPS 之后。

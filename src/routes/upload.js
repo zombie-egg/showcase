@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * 图片上传路由。后台免登录可用。
+ * 图片上传路由。需登录鉴权。
  * 请求：multipart/form-data，字段名 file
  * 返回：{ url, filename } —— url 为前端可直接访问的相对路径
  */
@@ -14,6 +14,7 @@ const { execFileSync } = require('child_process');
 const multer = require('multer');
 const config = require('../config');
 const { ok } = require('../utils/response');
+const { requireAuth } = require('../middleware/auth');
 const uploadSingle = require('../middleware/upload');
 const AppError = require('../utils/AppError');
 
@@ -34,7 +35,7 @@ const logoUpload = multer({
 }).single('file');
 
 // POST /api/upload
-router.post('/', (req, res, next) => {
+router.post('/', requireAuth, (req, res, next) => {
   uploadSingle(req, res, (err) => {
     if (err) return next(err); // 交给全局错误处理（含 multer 错误）
     if (!req.file) {
@@ -47,7 +48,7 @@ router.post('/', (req, res, next) => {
 
 // POST /api/upload/logo
 // 覆盖全站固定站点标识：/static/images/logo.png
-router.post('/logo', (req, res, next) => {
+router.post('/logo', requireAuth, (req, res, next) => {
   logoUpload(req, res, (err) => {
     if (err) return next(err);
     if (!req.file) {
