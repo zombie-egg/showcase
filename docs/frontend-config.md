@@ -43,4 +43,4 @@ window.APP_CONFIG = {
 
 ## 管理员登录
 
-默认后端密码为 `admin123`，可通过环境变量 `ADMIN_PASSWORD` 覆盖。登录成功后 token 保存在浏览器 `localStorage`，后台写操作会自动携带鉴权头。
+默认后端密码为 `Ccj940904`，可通过环境变量 `ADMIN_PASSWORD` 覆盖。登录成功后 token 保存在浏览器 `localStorage`，后台写操作会自动携带鉴权头。

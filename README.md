@@ -23,7 +23,7 @@ npm start           # 或开发模式 npm run dev（文件变更自动重启）
 - 健康检查：`http://localhost:3000/api/health`
 - 静态资源：`http://localhost:3000/static/`
 
-默认端口 `3000`，默认管理员密码 `admin123`。可用环境变量覆盖：
+默认端口 `3000`，默认管理员密码 `Ccj940904`。可用环境变量覆盖：
 
 ```bash
 PORT=8080 ADMIN_PASSWORD=your_secret npm start
@@ -114,11 +114,11 @@ showcase/
 ```json
 {
   "username": "admin",
-  "password": "admin123",
+  "password": "Ccj940904",
   "updatedAt": "2026-01-01T00:00:00.000Z"
 }
 ```
-> 实际登录校验以 `config.ADMIN_PASSWORD`（默认 `admin123`，可用环境变量覆盖）为准。
+> 实际登录校验以 `config.ADMIN_PASSWORD`（默认 `Ccj940904`，可用环境变量覆盖）为准。
 
 ### 2. 分类表 `data/categories.json`
 ```json

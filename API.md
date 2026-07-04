@@ -39,7 +39,7 @@ Authorization: Bearer <token>
 | password | string | 是 | 管理员密码 |
 
 ```json
-{ "password": "admin123" }
+{ "password": "Ccj940904" }
 ```
 
 **成功响应**

@@ -13,7 +13,7 @@ const { ensureDirSync, ensureFileSync } = require('./store');
 // 管理员配置表（密码优先取环境变量，此处仅存说明与占位）
 const ADMIN_SEED = {
   username: 'admin',
-  // 说明：真实校验以 config.ADMIN_PASSWORD 为准（默认 admin123，可用环境变量覆盖）
+  // 说明：真实校验以 config.ADMIN_PASSWORD 为准（默认 Ccj940904，可用环境变量覆盖）
   password: config.ADMIN_PASSWORD,
   updatedAt: new Date().toISOString(),
 };

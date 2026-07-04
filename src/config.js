@@ -10,7 +10,7 @@ module.exports = {
   PORT: process.env.PORT || 3000,
 
   // 管理员固定密码（生产部署可用环境变量 ADMIN_PASSWORD 覆盖）
-  ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || 'admin123',
+  ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || 'Ccj940904',
 
   // 登录令牌有效期（毫秒），默认 7 天
   TOKEN_TTL: 7 * 24 * 60 * 60 * 1000,
